@@ -1,16 +1,18 @@
 package com.kirbybanman.travelclaimer;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class MainActivity extends Activity {
+public class ClaimsListActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.claims_list);
 	}
 
 	@Override
@@ -30,5 +32,9 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void newClaim(View view) {
+		startActivity(new Intent(this, NewClaimActivity.class));
 	}
 }

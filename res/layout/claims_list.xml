@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kirbybanman.travelclaimer.MainActivity" >
+    tools:context="com.kirbybanman.travelclaimer.ClaimsListActivity" >
 
     <TextView
         android:id="@+id/claimListTitle"
@@ -33,6 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:text="New Claim" />
+        android:text="New Claim"
+        android:onClick="newClaim" />
 
 </RelativeLayout>
