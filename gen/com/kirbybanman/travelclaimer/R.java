@@ -25,42 +25,44 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int ClaimTitle=0x7f080007;
+        public static final int IndividualClaimEditDetailsButton=0x7f080006;
+        public static final int IndividualClaimEditExpensesButton=0x7f080004;
+        public static final int IndividualClaimEmailButton=0x7f080005;
+        public static final int IndividualClaimSummary=0x7f080007;
+        public static final int IndividualClaimTitle=0x7f080003;
         public static final int action_settings=0x7f080013;
-        public static final int claimListItemDate=0x7f080004;
-        public static final int claimListItemDescription=0x7f080005;
-        public static final int claimListItemStatus=0x7f080006;
-        public static final int claimListItemTotals=0x7f080003;
+        public static final int claimListItemDate=0x7f080010;
+        public static final int claimListItemDescription=0x7f080011;
+        public static final int claimListItemStatus=0x7f080012;
+        public static final int claimListItemTotals=0x7f08000f;
         public static final int claimListTitle=0x7f080000;
-        public static final int claimSummary=0x7f08000b;
         public static final int claimsListView=0x7f080001;
-        public static final int doneNewClaimButton=0x7f08000d;
-        public static final int editDetailsButton=0x7f08000a;
-        public static final int editExpensesButton=0x7f080008;
-        public static final int emailClaimButton=0x7f080009;
+        public static final int doneNewClaimButton=0x7f080009;
         public static final int newClaimButton=0x7f080002;
-        public static final int newClaimDescription=0x7f080012;
-        public static final int newClaimEndDateButton=0x7f08000e;
-        public static final int newClaimEndDateText=0x7f080011;
-        public static final int newClaimStartDateButton=0x7f08000f;
-        public static final int newClaimStartDateText=0x7f080010;
-        public static final int newClaimTitle=0x7f08000c;
+        public static final int newClaimDescription=0x7f08000e;
+        public static final int newClaimEndDateButton=0x7f08000a;
+        public static final int newClaimEndDateText=0x7f08000d;
+        public static final int newClaimStartDateButton=0x7f08000b;
+        public static final int newClaimStartDateText=0x7f08000c;
+        public static final int newClaimTitle=0x7f080008;
     }
     public static final class layout {
-        public static final int claims_list=0x7f030000;
-        public static final int claims_list_item=0x7f030001;
-        public static final int individual_claim=0x7f030002;
-        public static final int new_claim=0x7f030003;
+        public static final int activity_claims_list=0x7f030000;
+        public static final int activity_individual_claim=0x7f030001;
+        public static final int activity_new_claim=0x7f030002;
+        public static final int claims_list_item=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
-        public static final int new_claim=0x7f070001;
+        public static final int individual_claim=0x7f070000;
+        public static final int main=0x7f070001;
+        public static final int new_claim=0x7f070002;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050001;
         public static final int save_file=0x7f050003;
+        public static final int title_activity_individual_claim=0x7f050005;
         public static final int title_activity_new_claim=0x7f050004;
     }
     public static final class style {

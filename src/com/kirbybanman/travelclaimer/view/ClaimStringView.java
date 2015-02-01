@@ -35,11 +35,11 @@ public class ClaimStringView {
 	}
 	
 	public String getAllDetails() {
-		return  "Status:  " + getStatus()    + "\n" +
+		return  getDescription() + "\n" +
+				"\n" +
+				"Status:  " + getStatus()    + "\n" +
 				"Start:   " + getStartDate() + "\n" +
-		        "Finish:  " + getEndDate()   + "\n" +
-		        "\n" +
-		        getDescription();
+		        "Finish:  " + getEndDate()   + "\n";
 	}
 	
 	public String getAllExpenses() {

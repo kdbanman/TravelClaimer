@@ -18,7 +18,7 @@ public class ExpenseStringView {
 	}
 	
 	public String getFullDescription() {
-		return  String.format(Locale.getDefault(), "%1$25s", getDate()) + getCategory() + "\n" +
+		return  String.format(Locale.getDefault(), "%0$25s", getDate()) + getCategory() + "\n" +
 				getAmount() + "\n" +
 				getDescription();
 	}

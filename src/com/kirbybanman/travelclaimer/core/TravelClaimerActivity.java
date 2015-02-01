@@ -1,6 +1,4 @@
-package com.kirbybanman.travelclaimer.callbacks;
-
-import com.kirbybanman.travelclaimer.TravelClaimerApp;
+package com.kirbybanman.travelclaimer.core;
 
 import android.app.Activity;
 
