@@ -29,7 +29,6 @@ public class ClaimsListAdapter extends ArrayAdapter<Claim> {
 		if (listItemView == null) {
 			LayoutInflater inflater = LayoutInflater.from(getContext());
 			listItemView = inflater.inflate(R.layout.claims_list_item, listView, false);
-			//TODO listView.addview(listItemView);
 		}
 		
 		Claim claim = this.getItem(position);

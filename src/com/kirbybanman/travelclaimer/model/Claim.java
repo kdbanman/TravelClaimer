@@ -5,7 +5,21 @@ import java.util.Date;
 public class Claim {
 	
 	public enum Status {
-		IN_PROGRESS, SUBMITTED, RETURNED, APPROVED
+		IN_PROGRESS("IN PROGRESS"),
+		SUBMITTED("SUBMITTED"),
+		RETURNED("RETURNED"),
+		APPROVED("APPROVED");
+		
+		private String asString;
+		
+		Status(String asString) {
+			this.asString = asString;
+		}
+		
+		@Override
+		public String toString() {
+			return this.asString;
+		}
 	}
 	
 	private String description;

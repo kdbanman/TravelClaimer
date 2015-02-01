@@ -18,7 +18,7 @@ import com.kirbybanman.travelclaimer.callbacks.DateSetter;
 
 /* Date picker adapted from http://developer.android.com/guide/topics/ui/controls/pickers.html
  * 
- * Takes a DateSetter so that the activity knows which date to set, start or end date.
+ * Takes a DateSetter so that the activity can accept the date.
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 	private DateSetter dateSetter;

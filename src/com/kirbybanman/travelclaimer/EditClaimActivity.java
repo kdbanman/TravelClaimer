@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,14 +27,16 @@ public class EditClaimActivity extends TravelClaimerActivity {
 
 	private Claim claim;
 	
-	Spinner statusSpinner;
+	private StatusAdapter spinnerAdapter;
 	
-	TextView startDateText;
-	TextView endDateText;
-	TextView descriptionText;
+	private Spinner statusSpinner;
 	
-	Button startDateButton;
-	Button endDateButton;
+	private TextView startDateText;
+	private TextView endDateText;
+	private TextView descriptionText;
+	
+	private Button startDateButton;
+	private Button endDateButton;
 	
 	
 	@Override
@@ -40,8 +44,24 @@ public class EditClaimActivity extends TravelClaimerActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_claim);
 		
+		spinnerAdapter = new StatusAdapter(this);
+		
 		statusSpinner = (Spinner) findViewById(R.id.editClaimStatusSpinner);
-		//TODO spinner adapter
+		statusSpinner.setAdapter(spinnerAdapter);
+		statusSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				claim.setStatus(spinnerAdapter.getStatus(position));
+				updateView();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// do nothing - claim unchanged
+			}
+			
+		});
 		
 		startDateText = (TextView) findViewById(R.id.editClaimStartDateText);
 		endDateText = (TextView) findViewById(R.id.editClaimEndDateText);
@@ -71,7 +91,7 @@ public class EditClaimActivity extends TravelClaimerActivity {
 	private void updateView() {
 		ClaimStringRenderer claimStringRenderer = new ClaimStringRenderer(claim);
 
-		//TODO set spinner position
+		statusSpinner.setSelection(spinnerAdapter.getPosition(claim.getStatus()));
 		
 		startDateText.setText(claimStringRenderer.getStartDate());
 		endDateText.setText(claimStringRenderer.getEndDate());

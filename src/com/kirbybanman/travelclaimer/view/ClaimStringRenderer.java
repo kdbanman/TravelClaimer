@@ -66,22 +66,7 @@ public class ClaimStringRenderer {
 	}
 	
 	public String getStatus() {
-		String status = null;
-		
-		switch (claim.getStatus()) {
-		case APPROVED: status = "APPROVED";
-			break;
-		case IN_PROGRESS: status = "IN PROGRESS";
-			break;
-		case RETURNED: status = "RETURNED";
-			break;
-		case SUBMITTED: status = "SUBMITTED";
-			break;
-		}
-		
-		if (status == null) Log.e("view", "status not found!");
-		
-		return status;
+		return claim.getStatus().toString();
 	}
 	
 	public String getTotals() {
