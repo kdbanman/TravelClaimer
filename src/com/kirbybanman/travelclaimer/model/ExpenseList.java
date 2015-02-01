@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class ExpenseList implements Iterable<Expense> {
@@ -38,6 +39,10 @@ public class ExpenseList implements Iterable<Expense> {
 		}
 		
 		return totals;
+	}
+	
+	public List<Expense> getList() {
+		return expenses;
 	}
 
 	@Override

@@ -71,7 +71,9 @@ public class IndividualClaimActivity extends TravelClaimerActivity {
 	}
 	
 	public void editExpensesButtonClicked(View view) {
-		
+		Intent intent = new Intent(this, ExpensesListActivity.class);
+		intent.putExtra("claimPosition", getApp().getClaimsList().indexOf(claim));
+		startActivity(intent);
 	}
 	
 	public void emailButtonClicked(View view) {

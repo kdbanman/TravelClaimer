@@ -1,16 +1,45 @@
 package com.kirbybanman.travelclaimer;
 
+import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
+import com.kirbybanman.travelclaimer.model.Claim;
+import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
-public class ExpensesListActivity extends Activity {
+public class ExpensesListActivity extends TravelClaimerActivity {
 
+	private Claim claim;
+	
+	private ExpensesListAdapter expensesAdapter;
+	
+	private ListView expensesList;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expenses_list);
+		
+		claim = getClaimFromIntent();
+		
+		expensesAdapter = new ExpensesListAdapter(this, R.layout.expenses_list_item, claim.getExpenses().getList());
+		
+		expensesList = (ListView) findViewById(R.id.ExpensesListView);
+		//TODO click and long click listeners
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
+		// reset adapter on resume - claim may have changed
+		claim = getClaimFromIntent();
+		expensesAdapter = new ExpensesListAdapter(this, R.layout.expenses_list_item, claim.getExpenses().getList());
+		expensesList.setAdapter(expensesAdapter);
 	}
 
 	@Override
@@ -30,5 +59,16 @@ public class ExpensesListActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private Claim getClaimFromIntent() {
+		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
+		
+		try {
+			return getApp().getClaimsList().get(claimPosition);
+		} catch (IndexOutOfBoundsException e) {
+			Log.e("intent fail", e.toString());
+		}
+		return null;
 	}
 }

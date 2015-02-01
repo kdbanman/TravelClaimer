@@ -23,17 +23,17 @@ public class ExpenseStringRenderer {
 				"  " + getAmount();
 	}
 
-	private String getDescription() {
+	public String getDescription() {
 		return expense.getDescription();
 	}
 
-	private String getAmount() {
+	public String getAmount() {
 		String code = expense.getCurrency().getCurrencyCode();
 		String amount = String.format(Locale.getDefault(), "%.2f", expense.getAmount());
 		return  "" + code + " "+ amount;
 	}
 
-	private String getCategory() {
+	public String getCategory() {
 		switch (expense.getCategory()) {
 			case ACCOMODATION: return "Accomodation";
 			case AIR_FARE: return "Air Fare";
@@ -50,7 +50,7 @@ public class ExpenseStringRenderer {
 		return "ERR: UNKNOWN";
 	}
 
-	private Object getDate() {
+	public String getDate() {
 		return dateFormatter.format(expense.getDate());
 	}
 }
