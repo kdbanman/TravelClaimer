@@ -7,40 +7,14 @@
         android:id="@+id/ClaimTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/backToClaimsButton"
+        android:layout_margin="10dp"
+        android:gravity="center"
         android:text="Claim"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/backToClaimsButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ClaimTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Back" />
-
-    <Button
-        android:id="@+id/deleteClaimButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Delete Claim" />
-
-    <Button
-        android:id="@+id/emailClaimButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/deleteClaimButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Email Claim" />
 
     <Button
         android:id="@+id/editExpensesButton"
@@ -49,6 +23,9 @@
         android:layout_above="@+id/emailClaimButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:text="Edit Expenses" />
 
     <Button
@@ -58,6 +35,9 @@
         android:layout_above="@+id/editExpensesButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:text="Edit Details" />
 
     <TextView
@@ -68,12 +48,25 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/ClaimTitle"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_margin="10dp"
+        android:autoLink="all"
+        android:hint="Claim summary..."
+        android:linksClickable="true"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical"
-        android:text="Claim summary string TODO"
         android:visibility="visible" />
+
+    <Button
+        android:id="@+id/emailClaimButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:text="Email" />
 
 </RelativeLayout>

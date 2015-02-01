@@ -3,7 +3,11 @@ package com.kirbybanman.travelclaimer.model;
 import java.util.Date;
 
 public class Claim {
-
+	
+	public enum Status {
+		IN_PROGRESS, SUBMITTED, RETURNED, APPROVED
+	}
+	
 	private String description;
 	private ExpenseList expenses;
 	private Status status;

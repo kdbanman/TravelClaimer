@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class ClaimsListActivity extends TravelClaimerActivity {
@@ -20,7 +23,13 @@ public class ClaimsListActivity extends TravelClaimerActivity {
 		setContentView(R.layout.claims_list);
 		
 		claimsAdapter = new ClaimsListAdapter(this, R.layout.claims_list_item, getApp().getClaimsList().getList());
-		((ListView) findViewById(R.id.claimsListView)).setAdapter(claimsAdapter);
+		
+		ListView claimsList = (ListView) findViewById(R.id.claimsListView);
+		claimsList.setAdapter(claimsAdapter);
+		claimsList.setOnItemClickListener(new ClaimClickListener());
+		claimsList.setOnLongClickListener(new ClaimLongClickListener());
+		
+		
 	}
 	
 	@Override
@@ -51,5 +60,26 @@ public class ClaimsListActivity extends TravelClaimerActivity {
 	
 	public void newClaimButtonClicked(View view) {
 		startActivity(new Intent(this, NewClaimActivity.class));
+	}
+
+	private class ClaimClickListener implements OnItemClickListener {
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			// transition to viewing the clicked claim TODO
+
+		}
+
+	}
+	
+	private class ClaimLongClickListener implements OnLongClickListener {
+
+		@Override
+		public boolean onLongClick(View v) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
 	}
 }

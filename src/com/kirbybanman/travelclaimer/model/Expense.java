@@ -6,44 +6,38 @@ import java.util.Date;
 import android.util.Log;
 
 public class Expense {
-	private String title;
+	
+	public enum Category {
+		AIR_FARE, GROUND_TRANSPORT, VEHICLE_RENTAL, FUEL, PARKING, REGISTRATION, ACCOMODATION, MEAL, MISC
+	}
+
 	private float amount;
 	private Currency currency;
 	private String description;
 	private Date date;
+	private Category category;
 	
 	public Expense() {
-		this("New Expense", 0.0f, "CAD", "Expense Description", new Date());
+		this(0.0f, "CAD", "Expense Description", new Date(), Category.MISC);
 	}
 	
-	public Expense(String title, float amount, Currency currency, String description, Date date) {
-		this.title = title;
+	public Expense(float amount, Currency currency, String description, Date date, Category category) {
 		this.amount = amount;
 		this.currency = currency;
 		this.description = description;
 		this.date = date;
+		this.category = category;
 	}
 	
-	public Expense(String title, float amount, String currencyCode, String description, Date date) {
-		this.currency = Currency.getInstance("CAD");
+	public Expense(float amount, String currencyCode, String description, Date date, Category category) {
+		this(amount, Currency.getInstance("CAD"), description, date, category);
+		
 		try {
 			this.currency = Currency.getInstance(currencyCode);
 		} catch (IllegalArgumentException e) {
-			Log.e("expense currency", "illegal ISO currency code passed to Expense constructor");
+			Log.e("expense currency", "illegal ISO currency code passed to Expense constructor.  CAD default used.");
 		}
 		
-		this.title = title;
-		this.amount = amount;
-		this.description = description;
-		this.date = date;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public float getAmount() {
@@ -84,5 +78,13 @@ public class Expense {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 }

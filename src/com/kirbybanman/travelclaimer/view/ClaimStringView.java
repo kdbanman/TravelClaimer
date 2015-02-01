@@ -8,6 +8,7 @@ import java.util.Map;
 import android.util.Log;
 
 import com.kirbybanman.travelclaimer.model.Claim;
+import com.kirbybanman.travelclaimer.model.Expense;
 
 /*
  * Class for rendering Claims as strings.
@@ -21,6 +22,39 @@ public class ClaimStringView {
 		this.claim = claim;
 		
 		dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale.CANADA);
+	}
+	
+	public String getFullDescription() {
+		return "Details\n" +
+	           "=======\n" +
+			   getAllDetails() + "\n" +
+			   "\n" +
+			   "Expenses\n" +
+			   "========\n" +
+			   getAllExpenses();
+	}
+	
+	public String getAllDetails() {
+		return  "Status:  " + getStatus()    + "\n" +
+				"Start:   " + getStartDate() + "\n" +
+		        "Finish:  " + getEndDate()   + "\n" +
+		        "\n" +
+		        getDescription();
+	}
+	
+	public String getAllExpenses() {
+		
+		String expenses = "Totals: \n" +
+				          getTotals() + "\n" +
+				          "\n" + 
+				          "Individual Expenses:\n" +
+				          "\n";
+		
+		for (Expense expense : claim.getExpenses()) {
+			expenses += new ExpenseStringView(expense).getFullDescription() + "\n\n";
+		}
+		
+		return expenses;
 	}
 	
 	public String getStartDate() {

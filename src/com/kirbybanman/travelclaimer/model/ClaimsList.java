@@ -1,9 +1,10 @@
 package com.kirbybanman.travelclaimer.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class ClaimsList {
+public class ClaimsList implements Iterable<Claim> {
 	private ArrayList<Claim> claimsList;
 	
 	public ClaimsList() {
@@ -28,6 +29,11 @@ public class ClaimsList {
 	
 	public List<Claim> getList() {
 		return claimsList;
+	}
+
+	@Override
+	public Iterator<Claim> iterator() {
+		return claimsList.iterator();
 	}
 
 }

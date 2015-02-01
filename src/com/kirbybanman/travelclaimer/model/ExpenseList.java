@@ -3,9 +3,10 @@ package com.kirbybanman.travelclaimer.model;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
-public class ExpenseList {
+public class ExpenseList implements Iterable<Expense> {
 	ArrayList<Expense> expenses; 
 	
 	public ExpenseList() {
@@ -37,5 +38,10 @@ public class ExpenseList {
 		}
 		
 		return totals;
+	}
+
+	@Override
+	public Iterator<Expense> iterator() {
+		return expenses.iterator();
 	}
 }

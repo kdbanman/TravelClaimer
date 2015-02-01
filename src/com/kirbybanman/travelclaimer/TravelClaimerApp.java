@@ -41,14 +41,14 @@ public class TravelClaimerApp extends Application {
 	 */
 	private static void addFixtureData() {
 		Claim temp1 = new Claim("first one", new Date(2), new Date(36));
-		temp1.addExpense(new Expense("buy airlane", 75.0f, "GBP", "747-400 cheap!", new Date()));
-		temp1.addExpense(new Expense("buy airlane again", 15.0f, "GBP", "F14 cheap!", new Date(33)));
-		temp1.addExpense(new Expense("buy airlanery", 705.0f, "CAD", "cheap!", new Date(10000)));
+		temp1.addExpense(new Expense(75.0f, "GBP", "747-400 cheap!", new Date(), Expense.Category.AIR_FARE));
+		temp1.addExpense(new Expense(15.0f, "GBP", "F14 cheap!", new Date(33), Expense.Category.AIR_FARE));
+		temp1.addExpense(new Expense(705.0f, "CAD", "cheap!", new Date(10000), Expense.Category.AIR_FARE));
 		
 		Claim temp2 = new Claim("second one", new Date(400), new Date(3600));
-		temp2.addExpense(new Expense("buy airlane", 75.0f, "CAD", "747-400 cheap!", new Date()));
-		temp2.addExpense(new Expense("buy airlane again", 15.0f, "CAD", "F14 cheap!", new Date(33)));
-		temp2.addExpense(new Expense("buy airlanery", 705.0f, "CAD", "cheap!", new Date(10000)));
+		temp2.addExpense(new Expense(75.0f, "CAD", "747-400 cheap!", new Date(), Expense.Category.AIR_FARE));
+		temp2.addExpense(new Expense(15.0f, "CAD", "F14 cheap!", new Date(33), Expense.Category.AIR_FARE));
+		temp2.addExpense(new Expense(705.0f, "CAD", "cheap!", new Date(10000), Expense.Category.AIR_FARE));
 		
 		claimsList.add(temp1);
 		claimsList.add(temp2);
