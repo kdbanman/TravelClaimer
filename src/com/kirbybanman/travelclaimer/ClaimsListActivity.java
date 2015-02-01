@@ -6,13 +6,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 
 public class ClaimsListActivity extends Activity {
 
+	private ClaimsListAdapter claimsAdapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.claims_list);
+		
+		claimsAdapter = new ClaimsListAdapter(this, R.layout.claims_list_item, getApp().getClaimsList());
+		((ListView) findViewById(R.id.claimsListView)).setAdapter(claimsAdapter);
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
 	}
 
 	@Override
@@ -36,5 +49,9 @@ public class ClaimsListActivity extends Activity {
 	
 	public void newClaim(View view) {
 		startActivity(new Intent(this, NewClaimActivity.class));
+	}
+	
+	private TravelClaimerApp getApp() {
+		return (TravelClaimerApp) this.getApplication();
 	}
 }

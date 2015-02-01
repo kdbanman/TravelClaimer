@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Claim {
 
-	private String title;
+	private String description;
 	private ExpenseList expenses;
 	private Status status;
 	private Date startDate;
 	private Date endDate;
 	
 	public Claim(String title, Date startDate, Date endDate) {
-		this.title = title;
+		this.description = title;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		
@@ -27,16 +27,20 @@ public class Claim {
 		return expenses.removeExpense(expense);
 	}
 	
+	public ExpenseList getExpenses() {
+		return expenses;
+	}
+
 	public boolean isEditable() {
 		return this.status == Status.IN_PROGRESS || this.status == Status.RETURNED;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setDescription(String title) {
+		this.description = title;
 	}
 
 	public Status getStatus() {

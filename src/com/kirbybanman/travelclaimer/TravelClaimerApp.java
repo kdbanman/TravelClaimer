@@ -2,6 +2,7 @@ package com.kirbybanman.travelclaimer;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.Expense;
@@ -24,6 +25,10 @@ public class TravelClaimerApp extends Application {
 		addFixtureData();
 	}
 	
+	public List<Claim> getClaimsList() {
+		return claimsList;
+	}
+	
 	/**
 	 * Testing function to populate gui without GSON or repeatedly entering stuff;
 	 */
@@ -34,9 +39,9 @@ public class TravelClaimerApp extends Application {
 		temp1.addExpense(new Expense("buy airlanery", 705.0f, "CAD", "cheap!", new Date(10000)));
 		
 		Claim temp2 = new Claim("second one", new Date(400), new Date(3600));
-		temp1.addExpense(new Expense("buy airlane", 75.0f, "CAD", "747-400 cheap!", new Date()));
-		temp1.addExpense(new Expense("buy airlane again", 15.0f, "CAD", "F14 cheap!", new Date(33)));
-		temp1.addExpense(new Expense("buy airlanery", 705.0f, "CAD", "cheap!", new Date(10000)));
+		temp2.addExpense(new Expense("buy airlane", 75.0f, "CAD", "747-400 cheap!", new Date()));
+		temp2.addExpense(new Expense("buy airlane again", 15.0f, "CAD", "F14 cheap!", new Date(33)));
+		temp2.addExpense(new Expense("buy airlanery", 705.0f, "CAD", "cheap!", new Date(10000)));
 		
 		claimsList.add(temp1);
 		claimsList.add(temp2);

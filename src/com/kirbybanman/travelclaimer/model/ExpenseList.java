@@ -20,6 +20,10 @@ public class ExpenseList {
 		return expenses.remove(expense);
 	}
 	
+	public int size() {
+		return expenses.size();
+	}
+	
 	public Map<Currency, Float> getTotals() {
 		HashMap<Currency, Float> totals = new HashMap<Currency, Float>();
 		
