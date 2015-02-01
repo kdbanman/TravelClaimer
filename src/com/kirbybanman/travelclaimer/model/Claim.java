@@ -10,6 +10,10 @@ public class Claim {
 	private Date startDate;
 	private Date endDate;
 	
+	public Claim() {
+		this("New Claim", new Date(), new Date());
+	}
+	
 	public Claim(String title, Date startDate, Date endDate) {
 		this.description = title;
 		this.startDate = startDate;

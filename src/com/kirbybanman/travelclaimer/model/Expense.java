@@ -12,6 +12,10 @@ public class Expense {
 	private String description;
 	private Date date;
 	
+	public Expense() {
+		this("New Expense", 0.0f, "CAD", "Expense Description", new Date());
+	}
+	
 	public Expense(String title, float amount, Currency currency, String description, Date date) {
 		this.title = title;
 		this.amount = amount;
