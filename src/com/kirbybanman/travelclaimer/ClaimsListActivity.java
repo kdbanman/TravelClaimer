@@ -1,4 +1,4 @@
-package com.kirbybanman.travelclaimer.activities;
+package com.kirbybanman.travelclaimer;
 
 import com.kirbybanman.travelclaimer.R;
 import com.kirbybanman.travelclaimer.R.id;

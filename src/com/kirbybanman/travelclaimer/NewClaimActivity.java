@@ -1,11 +1,6 @@
-package com.kirbybanman.travelclaimer.activities;
+package com.kirbybanman.travelclaimer;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 import com.kirbybanman.travelclaimer.R;
 import com.kirbybanman.travelclaimer.R.id;
@@ -16,17 +11,13 @@ import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.ClaimsList;
-import com.kirbybanman.travelclaimer.view.ClaimStringView;
+import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 
 import android.os.Bundle;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 public class NewClaimActivity extends TravelClaimerActivity {
@@ -45,10 +36,10 @@ public class NewClaimActivity extends TravelClaimerActivity {
 		newClaim = new Claim();
 		
 		startDateText = (TextView) findViewById(R.id.newClaimStartDateText);
-		startDateText.setText(new ClaimStringView(newClaim).getStartDate());
+		startDateText.setText(new ClaimStringRenderer(newClaim).getStartDate());
 		
 		endDateText = (TextView) findViewById(R.id.newClaimEndDateText);
-		endDateText.setText(new ClaimStringView(newClaim).getEndDate());
+		endDateText.setText(new ClaimStringRenderer(newClaim).getEndDate());
 		
 
 		descriptionText = (TextView) findViewById(R.id.newClaimDescription);
@@ -69,7 +60,7 @@ public class NewClaimActivity extends TravelClaimerActivity {
 			@Override
 			public void setDate(Date date) { 
 				newClaim.setStartDate(date);
-				startDateText.setText(new ClaimStringView(newClaim).getStartDate());
+				startDateText.setText(new ClaimStringRenderer(newClaim).getStartDate());
 			}
 		});
 		frag.show(getFragmentManager(), "start_date");
@@ -83,7 +74,7 @@ public class NewClaimActivity extends TravelClaimerActivity {
 			@Override
 			public void setDate(Date date) {
 				newClaim.setEndDate(date);
-				endDateText.setText(new ClaimStringView(newClaim).getEndDate());
+				endDateText.setText(new ClaimStringRenderer(newClaim).getEndDate());
 			}
 		});
 		frag.show(getFragmentManager(), "end_date");
@@ -103,48 +94,9 @@ public class NewClaimActivity extends TravelClaimerActivity {
 		});
 		
 		Intent intent = new Intent(this, IndividualClaimActivity.class);
-		intent.putExtra("claimPosition", getApp().getClaimsList().size() - 1);
+		intent.putExtra("claimPosition", getApp().getClaimsList().indexOf(newClaim));
 		startActivity(intent);
 		finish(); // new claim creation is done --> remove self from stack.
 		
 	}
-	
-	/* Date picker adapted from http://developer.android.com/guide/topics/ui/controls/pickers.html
-	 * 
-	 * Takes a DateSetter so that the activity knows which date to set, start or end date.
-	 */
-	
-	public static class DatePickerFragment extends DialogFragment
-										   implements DatePickerDialog.OnDateSetListener {
-		private DateSetter dateSetter;
-		
-		public DatePickerFragment(DateSetter dateSetter) {
-			this.dateSetter = dateSetter;
-		}
-		
-		@Override
-		public Dialog onCreateDialog(Bundle savedInstanceState) {
-			// Use the current date as the default date in the picker
-	        final Calendar c = Calendar.getInstance();
-	        int year = c.get(Calendar.YEAR);
-	        int month = c.get(Calendar.MONTH);
-	        int day = c.get(Calendar.DAY_OF_MONTH);
-
-	        // Create a new instance of DatePickerDialog and return it
-	        return new DatePickerDialog(getActivity(), this, year, month, day);
-		}
-		
-		@Override
-		public void onDateSet(DatePicker view, int year, int month, int day) {
-			String dateStr = year + "/" + month + "/" + day;
-			try {
-				DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
-				dateSetter.setDate(formatter.parse(dateStr));
-			} catch (ParseException e) {
-				Log.e("date_picker", e.toString());
-			}
-		}
-
-	}
-
 }

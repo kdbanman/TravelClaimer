@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kirbybanman.travelclaimer.activities.IndividualClaimActivity" >
+    tools:context="com.kirbybanman.travelclaimer.IndividualClaimActivity" >
 
     <TextView
         android:id="@+id/IndividualClaimTitle"
@@ -28,7 +28,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:text="Edit Expenses" />
+        android:text="Edit Expenses" 
+        android:onClick="editExpensesButtonClicked"/>
 
     <Button
         android:id="@+id/IndividualClaimEditDetailsButton"
@@ -40,7 +41,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:text="Edit Details" />
+        android:text="Edit Details"
+        android:onClick="editDetailsButtonClicked" />
 
     <ScrollView
         android:id="@+id/IndividualClaimSummaryScroller"
@@ -73,6 +75,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_margin="5dp"
-        android:text="Email" />
+        android:text="Email"
+        android:onClick="emailButtonClicked" />
 
 </RelativeLayout>

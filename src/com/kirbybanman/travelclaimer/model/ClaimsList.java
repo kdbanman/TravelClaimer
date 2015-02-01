@@ -27,6 +27,10 @@ public class ClaimsList implements Iterable<Claim> {
 		return claimsList.set(index, claim);
 	}
 	
+	public int indexOf(Claim claim) {
+		return claimsList.indexOf(claim);
+	}
+	
 	public Claim remove(int index) {
 		return claimsList.remove(index);
 	}

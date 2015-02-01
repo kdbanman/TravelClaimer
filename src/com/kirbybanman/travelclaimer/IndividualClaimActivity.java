@@ -1,4 +1,4 @@
-package com.kirbybanman.travelclaimer.activities;
+package com.kirbybanman.travelclaimer;
 
 import com.kirbybanman.travelclaimer.R;
 import com.kirbybanman.travelclaimer.R.id;
@@ -6,12 +6,14 @@ import com.kirbybanman.travelclaimer.R.layout;
 import com.kirbybanman.travelclaimer.R.menu;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;
-import com.kirbybanman.travelclaimer.view.ClaimStringView;
+import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class IndividualClaimActivity extends TravelClaimerActivity {
@@ -34,10 +36,9 @@ public class IndividualClaimActivity extends TravelClaimerActivity {
 		
 		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
 		
-		
 		try {
 			claim = getApp().getClaimsList().get(claimPosition);
-			summaryText.setText(new ClaimStringView(claim).getFullDescription());
+			summaryText.setText(new ClaimStringRenderer(claim).getFullDescription());
 		} catch (IndexOutOfBoundsException e) {
 			Log.e("intent fail", e.toString());
 			summaryText.setText("Bad claim number: " + claimPosition);
@@ -61,5 +62,19 @@ public class IndividualClaimActivity extends TravelClaimerActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void editDetailsButtonClicked(View view) {
+		Intent intent = new Intent(this, EditClaimActivity.class);
+		intent.putExtra("claimPosition", getApp().getClaimsList().indexOf(claim));
+		startActivity(intent);
+	}
+	
+	public void editExpensesButtonClicked(View view) {
+		
+	}
+	
+	public void emailButtonClicked(View view) {
+		
 	}
 }

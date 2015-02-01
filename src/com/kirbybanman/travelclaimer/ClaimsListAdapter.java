@@ -1,4 +1,4 @@
-package com.kirbybanman.travelclaimer.activities;
+package com.kirbybanman.travelclaimer;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import com.kirbybanman.travelclaimer.R;
 import com.kirbybanman.travelclaimer.R.id;
 import com.kirbybanman.travelclaimer.R.layout;
 import com.kirbybanman.travelclaimer.model.Claim;
-import com.kirbybanman.travelclaimer.view.ClaimStringView;
+import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 
 import android.content.Context;
 import android.util.Log;
@@ -36,7 +36,7 @@ public class ClaimsListAdapter extends ArrayAdapter<Claim> {
 		
 		if (claim != null) {
 			
-			ClaimStringView claimStrings = new ClaimStringView(claim);
+			ClaimStringRenderer claimStrings = new ClaimStringRenderer(claim);
 			
 			// set list item text components
 			setText(listItemView, R.id.claimListItemDescription, claimStrings.getDescription());

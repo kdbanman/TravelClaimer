@@ -13,12 +13,12 @@ import com.kirbybanman.travelclaimer.model.Expense;
 /*
  * Class for rendering Claims as strings.
  */
-public class ClaimStringView {
+public class ClaimStringRenderer {
 
 	private Claim claim;
 	private DateFormat dateFormatter;
 	
-	public ClaimStringView(Claim claim) {
+	public ClaimStringRenderer(Claim claim) {
 		this.claim = claim;
 		
 		dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale.CANADA);
@@ -51,7 +51,7 @@ public class ClaimStringView {
 				          "\n";
 		
 		for (Expense expense : claim.getExpenses()) {
-			expenses += new ExpenseStringView(expense).getFullDescription() + "\n\n";
+			expenses += new ExpenseStringRenderer(expense).getFullDescription() + "\n\n";
 		}
 		
 		return expenses;

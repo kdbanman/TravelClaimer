@@ -7,11 +7,11 @@ import android.util.Log;
 
 import com.kirbybanman.travelclaimer.model.Expense;
 
-public class ExpenseStringView {
+public class ExpenseStringRenderer {
 	private Expense expense;
 	private DateFormat dateFormatter;
 	
-	public ExpenseStringView(Expense expense) {
+	public ExpenseStringRenderer(Expense expense) {
 		this.expense = expense;
 
 		dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale.CANADA);
