@@ -1,7 +1,6 @@
 package com.kirbybanman.travelclaimer.view;
 
 import java.text.DateFormat;
-import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class ClaimStringView {
 	public ClaimStringView(Claim claim) {
 		this.claim = claim;
 		
-		dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT, Locale.CANADA);
+		dateFormatter = DateFormat.getDateInstance(DateFormat.LONG, Locale.CANADA);
 	}
 	
 	public String getStartDate() {
@@ -59,7 +58,7 @@ public class ClaimStringView {
 		
 		for (Map.Entry<Currency, Float> total : claim.getExpenses().getTotals().entrySet()) {
 			String code = total.getKey().getCurrencyCode();
-			String amount = String.format("%.2f", total.getValue());
+			String amount = String.format(Locale.getDefault(), "%.2f", total.getValue());
 			totals +=  "" + code + " "+ amount + "\n";
 		}
 		

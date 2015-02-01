@@ -1,6 +1,7 @@
 package com.kirbybanman.travelclaimer;
 
-import android.app.Activity;
+import com.kirbybanman.travelclaimer.callbacks.TravelClaimerActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-public class ClaimsListActivity extends Activity {
+public class ClaimsListActivity extends TravelClaimerActivity {
 
 	private ClaimsListAdapter claimsAdapter;
 	
@@ -18,7 +19,7 @@ public class ClaimsListActivity extends Activity {
 		
 		setContentView(R.layout.claims_list);
 		
-		claimsAdapter = new ClaimsListAdapter(this, R.layout.claims_list_item, getApp().getClaimsList());
+		claimsAdapter = new ClaimsListAdapter(this, R.layout.claims_list_item, getApp().getClaimsList().getList());
 		((ListView) findViewById(R.id.claimsListView)).setAdapter(claimsAdapter);
 	}
 	
@@ -26,6 +27,7 @@ public class ClaimsListActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		
+		claimsAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -47,11 +49,7 @@ public class ClaimsListActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void newClaim(View view) {
+	public void newClaimButtonClicked(View view) {
 		startActivity(new Intent(this, NewClaimActivity.class));
-	}
-	
-	private TravelClaimerApp getApp() {
-		return (TravelClaimerApp) this.getApplication();
 	}
 }

@@ -7,23 +7,15 @@
 
     <TextView
         android:id="@+id/newClaimTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/backToClaimsButton"
+        android:layout_margin="10dp"
+        android:gravity="center"
         android:text="New Claim"
         android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/backToClaimsButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/newClaimTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Back" />
 
     <Button
         android:id="@+id/doneNewClaimButton"
@@ -32,6 +24,65 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:onClick="doneButtonClicked"
         android:text="Done" />
+
+    <Button
+        android:id="@+id/newClaimEndDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/newClaimStartDateButton"
+        android:layout_alignBottom="@+id/newClaimStartDateButton"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="endDateButtonClicked"
+        android:text="End Date" />
+
+    <TextView
+        android:id="@+id/newClaimStartDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newClaimStartDateButton"
+        android:layout_marginLeft="10dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/newClaimEndDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/newClaimStartDateText"
+        android:layout_alignBottom="@+id/newClaimStartDateText"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/newClaimStartDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newClaimTitle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="startDateButtonClicked"
+        android:text="Start Date" />
+
+    <EditText
+        android:id="@+id/newClaimDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/newClaimStartDateText"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Claim description..."
+        android:inputType="textMultiLine"
+        android:onClick="descriptionTextClicked" />
 
 </RelativeLayout>

@@ -26,7 +26,7 @@ public final class R {
     }
     public static final class id {
         public static final int ClaimTitle=0x7f080007;
-        public static final int action_settings=0x7f080010;
+        public static final int action_settings=0x7f080015;
         public static final int backToClaimsButton=0x7f080008;
         public static final int claimListItemDate=0x7f080004;
         public static final int claimListItemDescription=0x7f080005;
@@ -41,6 +41,11 @@ public final class R {
         public static final int editExpensesButton=0x7f08000b;
         public static final int emailClaimButton=0x7f08000a;
         public static final int newClaimButton=0x7f080002;
+        public static final int newClaimDescription=0x7f080014;
+        public static final int newClaimEndDateButton=0x7f080010;
+        public static final int newClaimEndDateText=0x7f080013;
+        public static final int newClaimStartDateButton=0x7f080011;
+        public static final int newClaimStartDateText=0x7f080012;
         public static final int newClaimTitle=0x7f08000e;
     }
     public static final class layout {

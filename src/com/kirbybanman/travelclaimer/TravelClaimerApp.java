@@ -1,17 +1,17 @@
 package com.kirbybanman.travelclaimer;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
+import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
 import com.kirbybanman.travelclaimer.model.Claim;
+import com.kirbybanman.travelclaimer.model.ClaimsList;
 import com.kirbybanman.travelclaimer.model.Expense;
 
 import android.app.Application;
 
 public class TravelClaimerApp extends Application {
 
-	private static ArrayList<Claim> claimsList;
+	private static ClaimsList claimsList;
 	
 	@Override
 	public void onCreate() {
@@ -19,14 +19,21 @@ public class TravelClaimerApp extends Application {
 		//TODO: attempt to GSON deserialize from save file.  will be null if invalid or nonexistent
 		
 		if (TravelClaimerApp.claimsList == null) {
-			TravelClaimerApp.claimsList = new ArrayList<Claim>();
+			TravelClaimerApp.claimsList = new ClaimsList();
 		}
 		
 		addFixtureData();
 	}
 	
-	public List<Claim> getClaimsList() {
+	public ClaimsList getClaimsList() {
 		return claimsList;
+	}
+	
+	public boolean mutateModel(ModelMutator mutator) {
+		mutator.mutate(claimsList);
+		
+		//TODO GSON to/from json return bool and log on errrrrrrrrrbody in da club
+		return true;
 	}
 	
 	/**
