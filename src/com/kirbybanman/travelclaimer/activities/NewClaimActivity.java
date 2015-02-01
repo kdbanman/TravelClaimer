@@ -103,9 +103,9 @@ public class NewClaimActivity extends TravelClaimerActivity {
 		});
 		
 		Intent intent = new Intent(this, IndividualClaimActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intent.putExtra("claimPosition", getApp().getClaimsList().size() - 1);
 		startActivity(intent);
+		finish(); // new claim creation is done --> remove self from stack.
 		
 	}
 	
