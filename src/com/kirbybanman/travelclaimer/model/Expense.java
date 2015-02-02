@@ -8,7 +8,25 @@ import android.util.Log;
 public class Expense {
 	
 	public enum Category {
-		AIR_FARE, GROUND_TRANSPORT, VEHICLE_RENTAL, FUEL, PARKING, REGISTRATION, ACCOMODATION, MEAL, MISC
+		ACCOMODATION("Accomodation"),
+		AIR_FARE("Air Fare"),
+		FUEL("Fuel"),
+		GROUND_TRANSPORT("Ground Transport"),
+		MEAL("Meal"),
+		MISC("Miscellaneous"),
+		PARKING("Parking"),
+		REGISTRATION("Registration"),
+		VEHICLE_RENTAL("Vehicle Rental");
+		
+		private String asString;
+		
+		Category(String asString) {
+			this.asString = asString;
+		}
+		
+		public String toString() {
+			return asString;
+		}
 	}
 
 	private float amount;

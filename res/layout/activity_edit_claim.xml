@@ -17,7 +17,7 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/doneEditClaimButton"
+        android:id="@+id/ExpenseDoneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -31,8 +31,8 @@
         android:id="@+id/editClaimEndDateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editClaimStartDateButton"
-        android:layout_alignBottom="@+id/editClaimStartDateButton"
+        android:layout_alignBaseline="@+id/ExpenseDateButton"
+        android:layout_alignBottom="@+id/ExpenseDateButton"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
@@ -40,11 +40,11 @@
         android:text="End Date" />
 
     <TextView
-        android:id="@+id/editClaimStartDateText"
+        android:id="@+id/ExpenseDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editClaimStartDateButton"
+        android:layout_below="@+id/ExpenseDateButton"
         android:layout_marginLeft="10dp"
         android:hint="No Start Date!"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -53,27 +53,27 @@
         android:id="@+id/editClaimEndDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editClaimStartDateText"
-        android:layout_alignBottom="@+id/editClaimStartDateText"
+        android:layout_alignBaseline="@+id/ExpenseDateText"
+        android:layout_alignBottom="@+id/ExpenseDateText"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:hint="No End Date!"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editClaimDescription"
+        android:id="@+id/ExpenseDescriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/editClaimStartDateText"
+        android:layout_below="@+id/ExpenseDateText"
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Claim description..."
         android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/editClaimStartDateButton"
+        android:id="@+id/ExpenseDateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -83,7 +83,7 @@
         android:text="Start Date" />
 
     <Spinner
-        android:id="@+id/editClaimStatusSpinner"
+        android:id="@+id/ExpenseCategorySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

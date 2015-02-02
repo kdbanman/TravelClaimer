@@ -46,7 +46,7 @@ public class EditClaimActivity extends TravelClaimerActivity {
 		
 		spinnerAdapter = new StatusAdapter(this);
 		
-		statusSpinner = (Spinner) findViewById(R.id.editClaimStatusSpinner);
+		statusSpinner = (Spinner) findViewById(R.id.ExpenseCategorySpinner);
 		statusSpinner.setAdapter(spinnerAdapter);
 		statusSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -63,13 +63,13 @@ public class EditClaimActivity extends TravelClaimerActivity {
 			
 		});
 		
-		startDateText = (TextView) findViewById(R.id.editClaimStartDateText);
+		startDateText = (TextView) findViewById(R.id.ExpenseDateText);
 		endDateText = (TextView) findViewById(R.id.editClaimEndDateText);
 		
-		startDateButton = (Button) findViewById(R.id.editClaimStartDateButton);
+		startDateButton = (Button) findViewById(R.id.ExpenseDateButton);
 		endDateButton = (Button) findViewById(R.id.editClaimEndDateButton);
 
-		descriptionText = (TextView) findViewById(R.id.editClaimDescription);
+		descriptionText = (TextView) findViewById(R.id.ExpenseDescriptionText);
 	}
 	
 	@Override
@@ -79,13 +79,10 @@ public class EditClaimActivity extends TravelClaimerActivity {
 		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
 		
 		// get claim and set veiw contents
-		try {
+		if (claimPosition != -1)
 			claim = getApp().getClaimsList().get(claimPosition);
 			
-			updateView();
-		} catch (IndexOutOfBoundsException e) {
-			Log.e("intent fail", e.toString());
-		}
+		updateView();
 	}
 	
 	private void updateView() {

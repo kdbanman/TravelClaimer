@@ -44,6 +44,10 @@ public class ExpenseList implements Iterable<Expense> {
 	public List<Expense> getList() {
 		return expenses;
 	}
+	
+	public Expense get(int index) {
+		return expenses.get(index);
+	}
 
 	@Override
 	public Iterator<Expense> iterator() {

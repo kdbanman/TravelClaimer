@@ -5,11 +5,15 @@ import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class ExpensesListActivity extends TravelClaimerActivity {
 
@@ -17,29 +21,26 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 	
 	private ExpensesListAdapter expensesAdapter;
 	
-	private ListView expensesList;
+	private ListView expensesListView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expenses_list);
 		
-		claim = getClaimFromIntent();
-		
-		expensesAdapter = new ExpensesListAdapter(this, R.layout.expenses_list_item, claim.getExpenses().getList());
-		
-		expensesList = (ListView) findViewById(R.id.ExpensesListView);
-		//TODO click and long click listeners
+		expensesListView = (ListView) findViewById(R.id.ExpensesListView);
+		expensesListView.setOnItemClickListener(new ExpenseClickListener());
+		//TODO long click listeners
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		
-		// reset adapter on resume - claim may have changed
+		// reset adapter on resume - claim has changed
 		claim = getClaimFromIntent();
 		expensesAdapter = new ExpensesListAdapter(this, R.layout.expenses_list_item, claim.getExpenses().getList());
-		expensesList.setAdapter(expensesAdapter);
+		expensesListView.setAdapter(expensesAdapter);
 	}
 
 	@Override
@@ -59,6 +60,23 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	/* 
+	 * On a expense tap, transition to claim overview activity.
+	 */
+	private class ExpenseClickListener implements OnItemClickListener {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			Intent intent = new Intent(ExpensesListActivity.this, ExpenseActivity.class);
+			intent.putExtra("claimPosition", getApp().getClaimsList().indexOf(claim));
+			intent.putExtra("expensePosition", position);
+			startActivity(intent);
+		}
+	}
+	
+	private boolean intentHasClaim() {
+		return getIntent().getIntExtra("claimPosition", -1) != -1;
 	}
 	
 	private Claim getClaimFromIntent() {

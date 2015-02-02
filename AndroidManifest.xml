@@ -42,10 +42,18 @@
         <activity
             android:name=".ExpensesListActivity"
             android:label="@string/title_activity_expenses_list"
-            android:parentActivityName=".IndividualClaimActivity" >
+            android:parentActivityName=".IndividualClaimActivity" android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kirbybanman.travelclaimer.IndividualClaimActivity" />
+        </activity>
+        <activity
+            android:name=".ExpenseActivity"
+            android:label="@string/title_activity_expense"
+            android:parentActivityName=".ExpensesListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kirbybanman.travelclaimer.ExpensesListActivity" />
         </activity>
     </application>
 

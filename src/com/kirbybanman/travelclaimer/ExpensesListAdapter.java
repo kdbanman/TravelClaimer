@@ -3,7 +3,6 @@ package com.kirbybanman.travelclaimer;
 import java.util.List;
 
 import com.kirbybanman.travelclaimer.model.Expense;
-import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 import com.kirbybanman.travelclaimer.view.ExpenseStringRenderer;
 
 import android.content.Context;

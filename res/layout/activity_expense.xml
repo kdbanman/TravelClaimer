@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kirbybanman.travelclaimer.ExpenseActivity" >
+
+    <Button
+        android:id="@+id/ExpenseDoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:onClick="doneButtonClicked"
+        android:text="Done" />
+
+    <Button
+        android:id="@+id/ExpenseDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ExpenseDoneButton"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:onClick="dateButtonClicked"
+        android:text="Date" />
+
+    <Spinner
+        android:id="@+id/ExpenseCategorySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ExpenseDateText"
+        android:layout_margin="10dp"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/ExpenseAmountNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ExpenseCategorySpinner"
+        android:layout_margin="10dp"
+        android:ellipsize="end"
+        android:ems="10"
+        android:hint="00.00"
+        android:inputType="numberDecimal"
+        android:maxLines="1" />
+
+    <Spinner
+        android:id="@+id/ExpenseCountryCodeSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ExpenseAmountNumber"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:id="@+id/ExpenseDescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/ExpenseDoneButton"
+        android:layout_below="@+id/ExpenseCountryCodeSpinner"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Expense description..."
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/ExpenseDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ExpenseDateButton"
+        android:layout_alignBottom="@+id/ExpenseDateButton"
+        android:layout_toRightOf="@+id/ExpenseDateButton"
+        android:hint="No Date!"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

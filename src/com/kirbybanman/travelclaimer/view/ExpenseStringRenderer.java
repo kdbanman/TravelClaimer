@@ -26,28 +26,19 @@ public class ExpenseStringRenderer {
 	public String getDescription() {
 		return expense.getDescription();
 	}
+	
+	public String getNumericalAmount() {
+		return String.format(Locale.getDefault(), "%.2f", expense.getAmount());
+	}
 
 	public String getAmount() {
 		String code = expense.getCurrency().getCurrencyCode();
-		String amount = String.format(Locale.getDefault(), "%.2f", expense.getAmount());
+		String amount = getNumericalAmount();
 		return  "" + code + " "+ amount;
 	}
 
 	public String getCategory() {
-		switch (expense.getCategory()) {
-			case ACCOMODATION: return "Accomodation";
-			case AIR_FARE: return "Air Fare";
-			case FUEL: return "Fuel";
-			case GROUND_TRANSPORT: return "Ground Transport";
-			case MEAL: return "Meal";
-			case MISC: return "Miscellaneous";
-			case PARKING: return "Parking";
-			case REGISTRATION: return "Registration";
-			case VEHICLE_RENTAL: return "Vehicle Rental";
-		}
-		
-		Log.e("expense stringer", "unknown category passed to Expense string viewer");
-		return "ERR: UNKNOWN";
+		return expense.getCategory().toString();
 	}
 
 	public String getDate() {
