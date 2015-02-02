@@ -70,6 +70,12 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public void newExpenseButtonClicked(View view) {
+		Intent intent = new Intent(ExpensesListActivity.this, ExpenseActivity.class);
+		intent.putExtra("claimPosition", getApp().getClaimsList().indexOf(claim));
+		startActivity(intent);
+	}
+	
 	/* 
 	 * On a expense tap, transition to claim overview activity.
 	 */
@@ -92,21 +98,6 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 			new ConfirmDelete(expensesAdapter.getItem(position)).show(getFragmentManager(), "Confirm_Delete_Claim");;
 			return true;
 		}
-	}
-	
-	private boolean intentHasClaim() {
-		return getIntent().getIntExtra("claimPosition", -1) != -1;
-	}
-	
-	private Claim getClaimFromIntent() {
-		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
-		
-		try {
-			return getApp().getClaimsList().get(claimPosition);
-		} catch (IndexOutOfBoundsException e) {
-			Log.e("intent fail", e.toString());
-		}
-		return null;
 	}
 	
 	/* Delete confirmation dialog adapted from
@@ -137,5 +128,19 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 	                .create();
 	    }
 
+	}
+
+	/* Look in Intent and try to get a claim from it.
+	 * 
+	 */
+	private Claim getClaimFromIntent() {
+		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
+		
+		try {
+			return getApp().getClaimsList().get(claimPosition);
+		} catch (IndexOutOfBoundsException e) {
+			Log.e("intent fail", e.toString());
+		}
+		return null;
 	}
 }

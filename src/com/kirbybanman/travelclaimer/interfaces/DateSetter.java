@@ -1,4 +1,4 @@
-package com.kirbybanman.travelclaimer.callbacks;
+package com.kirbybanman.travelclaimer.interfaces;
 
 import java.util.Date;
 

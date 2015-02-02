@@ -2,7 +2,7 @@ package com.kirbybanman.travelclaimer.core;
 
 import java.util.Date;
 
-import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
+import com.kirbybanman.travelclaimer.interfaces.ModelMutator;
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.ClaimsList;
 import com.kirbybanman.travelclaimer.model.Expense;

@@ -2,7 +2,7 @@ package com.kirbybanman.travelclaimer.adapter;
 
 import java.util.Arrays;
 
-import com.kirbybanman.travelclaimer.callbacks.Stringable;
+import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
 import android.content.Context;
 import android.database.DataSetObserver;

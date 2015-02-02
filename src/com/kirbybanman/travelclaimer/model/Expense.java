@@ -3,7 +3,7 @@ package com.kirbybanman.travelclaimer.model;
 import java.util.Currency;
 import java.util.Date;
 
-import com.kirbybanman.travelclaimer.callbacks.Stringable;
+import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
 import android.util.Log;
 
@@ -39,7 +39,7 @@ public class Expense {
 	private Category category;
 	
 	public Expense() {
-		this(0.0f, "CAD", "Expense Description", new Date(), Category.MISC);
+		this(0.0f, "CAD", "", new Date(), Category.MISC);
 	}
 	
 	public Expense(float amount, Currency currency, String description, Date date, Category category) {

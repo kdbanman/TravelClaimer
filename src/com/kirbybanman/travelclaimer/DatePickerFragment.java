@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.DatePicker;
 
-import com.kirbybanman.travelclaimer.callbacks.DateSetter;
+import com.kirbybanman.travelclaimer.interfaces.DateSetter;
 
 /* Date picker adapted from http://developer.android.com/guide/topics/ui/controls/pickers.html
  * 

@@ -2,7 +2,7 @@ package com.kirbybanman.travelclaimer.model;
 
 import java.util.Date;
 
-import com.kirbybanman.travelclaimer.callbacks.Stringable;
+import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
 public class Claim {
 	

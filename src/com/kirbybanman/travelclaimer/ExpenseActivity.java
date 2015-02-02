@@ -1,13 +1,18 @@
 package com.kirbybanman.travelclaimer;
 
+import java.util.Date;
+
 import com.kirbybanman.travelclaimer.adapter.CategoryAdapter;
 import com.kirbybanman.travelclaimer.adapter.CurrencyAdapter;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
+import com.kirbybanman.travelclaimer.interfaces.DateSetter;
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.Expense;
+import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 import com.kirbybanman.travelclaimer.view.ExpenseStringRenderer;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -136,6 +141,9 @@ public class ExpenseActivity extends TravelClaimerActivity {
 		currencySpinner.setSelection(currencyAdapter.indexOf(expense.getCurrency().toString()));
 	}
 	
+	/* save our mutated local expense model if necessary, and
+	 * discard this activity.
+	 */
 	public void doneButtonClicked(View view) {
 		// Text description is now confirmed.  write it to local
 		// model and the save that model globally. 
@@ -153,10 +161,23 @@ public class ExpenseActivity extends TravelClaimerActivity {
 		startActivity(intent);
 	}
 	
+	/*
+	 * Create dialog and use it to set the expense date.
+	 */
 	public void dateButtonClicked(View view) {
-		
+		DialogFragment frag = new DatePickerFragment(expense.getDate(), new DateSetter() {
+			@Override
+			public void setDate(Date date) {
+				expense.setDate(date);
+				dateText.setText(new ExpenseStringRenderer(expense).getDate());
+			}
+		});
+		frag.show(getFragmentManager(), "expense_date");
 	}
 	
+	/*
+	 * Below are 3 obvious functions to inspect and extract data from the Intent.
+	 */
 	private Claim getClaimFromIntent() {
 		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
 		

@@ -1,6 +1,6 @@
 package com.kirbybanman.travelclaimer.adapter;
 
-import com.kirbybanman.travelclaimer.callbacks.Stringable;
+import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
 /* This enum looks like it's modelling currencies.  So why is it in the
  * adapter package?
