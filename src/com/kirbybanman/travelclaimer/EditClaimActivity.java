@@ -11,9 +11,11 @@ import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
@@ -73,6 +75,13 @@ public class EditClaimActivity extends TravelClaimerActivity {
 		endDateButton = (Button) findViewById(R.id.editClaimEndDateButton);
 
 		descriptionText = (TextView) findViewById(R.id.ExpenseDescriptionText);
+		descriptionText.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				claim.setDescription(descriptionText.getText().toString());
+				return false;
+			}
+		});
 	}
 	
 	@Override

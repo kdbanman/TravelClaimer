@@ -31,11 +31,11 @@ public class Claim {
 	private Date endDate;
 	
 	public Claim() {
-		this("New Claim", new Date(), new Date());
+		this("", new Date(), new Date());
 	}
 	
-	public Claim(String title, Date startDate, Date endDate) {
-		this.description = title;
+	public Claim(String description, Date startDate, Date endDate) {
+		this.description = description;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		

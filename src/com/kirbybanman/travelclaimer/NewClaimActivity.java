@@ -13,8 +13,10 @@ import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 import android.os.Bundle;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.TextView;
 
 public class NewClaimActivity extends TravelClaimerActivity {
@@ -40,6 +42,13 @@ public class NewClaimActivity extends TravelClaimerActivity {
 		
 
 		descriptionText = (TextView) findViewById(R.id.newClaimDescription);
+		descriptionText.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				newClaim.setDescription(descriptionText.getText().toString());
+				return false;
+			}
+		});
 	}
 
 	@Override

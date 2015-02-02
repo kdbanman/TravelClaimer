@@ -8,18 +8,18 @@ import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.interfaces.DateSetter;
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.Expense;
-import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 import com.kirbybanman.travelclaimer.view.ExpenseStringRenderer;
 
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
@@ -47,10 +47,29 @@ public class ExpenseActivity extends TravelClaimerActivity {
 		setContentView(R.layout.activity_expense);
 		
 		dateText = (TextView) findViewById(R.id.ExpenseDateText);
-		descriptionText = (TextView) findViewById(R.id.ExpenseDescriptionText);
 		
+		descriptionText = (TextView) findViewById(R.id.ExpenseDescriptionText);
+		descriptionText.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				expense.setDescription(descriptionText.getText().toString());
+				return false;
+			}
+		});
+				
 		amountText = (EditText) findViewById(R.id.ExpenseAmountNumber);
 		amountText.setFilters(new InputFilter[] {new CurrencyInputFilter()});
+		amountText.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				try {
+					expense.setAmount(Float.parseFloat(amountText.getText().toString()));
+				} catch (NumberFormatException e) {
+					Log.w("bad currency format", "could not convert float");
+				}
+				return false;
+			}
+		});
 	
 		categoryAdapter = new CategoryAdapter(this);
 		currencyAdapter = new CurrencyAdapter(this);
@@ -134,7 +153,9 @@ public class ExpenseActivity extends TravelClaimerActivity {
 		ExpenseStringRenderer expenseStrings = new ExpenseStringRenderer(expense);
 		
 		dateText.setText(expenseStrings.getDate());
+		
 		descriptionText.setText(expense.getDescription());
+		
 		amountText.setText(expenseStrings.getNumericalAmount());
 		
 		categorySpinner.setSelection(categoryAdapter.indexOf(expense.getCategory()));
