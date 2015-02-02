@@ -4,17 +4,17 @@ A travel expense tracker for Android.
 
 Make, edit, delete, and email travel claims.
 
-### APK Location
+### APK
 
 [`./bin/TravelClaimer.apk`](https://cdn.rawgit.com/kdbanman/TravelClaimer/master/bin/TravelClaimer.apk)
 
-### Video Location
+### Video
 
 [`./kdbanman-TravelClaimer-fast.mp4`](https://cdn.rawgit.com/kdbanman/TravelClaimer/master/kdbanman-TravelClaimer-fast.mp4)
 
-Better quality before timelapse (3 minutes) is [on YouTube here](https://www.youtube.com/watch?v=rVPfOQ8JP2o).
+Better quality (before timelapse) is on YouTube [right here](https://www.youtube.com/watch?v=rVPfOQ8JP2o).
 
-### UML Location
+### UML
 
 [`./doc/TravelClaimer_UML.pdf`](https://cdn.rawgit.com/kdbanman/TravelClaimer/master/doc/TravelClaimer_UML.pdf)
 
