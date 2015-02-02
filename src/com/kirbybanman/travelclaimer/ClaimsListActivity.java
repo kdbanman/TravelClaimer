@@ -38,6 +38,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
+/**
+ * Launch activity for the application.  Lists existing claims in the model.
+ * Allows deletion directly.  Allows transition to claim edit and creation activities.
+ * 
+ * @author kdbanman
+ *
+ */
 public class ClaimsListActivity extends TravelClaimerActivity {
 
 	private ClaimsListAdapter claimsAdapter;

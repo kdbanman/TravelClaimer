@@ -30,9 +30,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-/*
- * Custom adapter for a list of expenses to a list view.
+/**
+ * Custom adapter for a list of expenses to a list view.  Each member of the list is a layout
+ * designed to accomodate the Expense model.
+ * 
  * Note, this could be refactored along with ClaimsListAdapter to have an abstract superclass TravelClaimerListAdapter.
+ * 
+ * @author kdbanman
  */
 public class ExpensesListAdapter extends ArrayAdapter<Expense> {
 

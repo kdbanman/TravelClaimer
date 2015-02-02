@@ -21,6 +21,10 @@ import java.util.Locale;
 
 import com.kirbybanman.travelclaimer.model.Expense;
 
+
+/**
+ * Another String renderer for a Model, this time Expense.  See ClaimStringRenderer for analogous rationale.
+ */
 public class ExpenseStringRenderer {
 	private Expense expense;
 	private DateFormat dateFormatter;

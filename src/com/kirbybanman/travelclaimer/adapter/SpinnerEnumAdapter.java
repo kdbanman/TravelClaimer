@@ -27,8 +27,12 @@ import android.view.ViewGroup;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-/*
- * Abstract adapter for turning stringable enums into spinners.
+/**
+ * Abstract adapter for turning stringable enums into spinners.  The Stringable interface only
+ * enforces the .toString() method.  This abstract adapter is designed to work with Java enum's
+ * uniquely compiler-constrained `values` array property in order to pair with a dropdown spinner.
+ * 
+ * @author kdbanman
  */
 public abstract class SpinnerEnumAdapter<E extends Stringable<E>> implements SpinnerAdapter {
 

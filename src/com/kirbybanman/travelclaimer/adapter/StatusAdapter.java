@@ -20,6 +20,13 @@ import com.kirbybanman.travelclaimer.model.Claim.Status;
 
 import android.content.Context;
 
+/**
+ * Minimal extension to turn the Claim.Status enumeration
+ * into a spinner dropdown view.
+ * 
+ * @author kdbanman
+ *
+ */
 public class StatusAdapter extends SpinnerEnumAdapter<Status> {
 	
 	public StatusAdapter(Context context) {

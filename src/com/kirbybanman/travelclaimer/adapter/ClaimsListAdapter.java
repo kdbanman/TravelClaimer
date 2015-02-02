@@ -30,6 +30,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+/**
+ * Custom adapter to translate Claim model data into a list view.  Populates said
+ * list view with a custom item layout designed for the Claim model.
+ * 
+ * @author kdbanman
+ *
+ */
 public class ClaimsListAdapter extends ArrayAdapter<Claim> {
 
 	public ClaimsListAdapter(Context context, int textViewResourceId, List<Claim> objects) {

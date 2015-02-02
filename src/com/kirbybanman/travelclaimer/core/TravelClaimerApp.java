@@ -32,6 +32,22 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+/**
+ * Main application container.  Houses the root of the model, a single ClaimsList.
+ * Knows how to serialize and deserialze the model with Gson.  Exposes save and mutate
+ * methods, whose purpose could've been better thought out:
+ * 
+ * - the ClaimsListAdapter needed access to the model root directly, so there is now
+ *   global access to the model.
+ * - the *plan* was to hide the model and expose all model mutations to the rest of
+ *   the app through the ModelMutator closure class, so I could just mutate the model
+ *   willy-nilly and know that it would save itself.
+ * - I ran out of time for implementing that callback command pattern, and it already
+ *   felt moot with the getClaimsList() slip up.
+ *   
+ * @author kdbanman
+ *
+ */
 public class TravelClaimerApp extends Application {
 
 	private static final String MODEL_FILENAME = "claims_list.gson";

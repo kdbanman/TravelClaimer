@@ -18,8 +18,10 @@ package com.kirbybanman.travelclaimer.interfaces;
 
 import java.util.Date;
 
-/*
- * Callback interface for date dialogs to call.
+/**
+ * Interface meant for date dialogs to make callbacks with.
+ * 
+ * @author kdbanman
  */
 public interface DateSetter {
 	public void setDate(Date date);

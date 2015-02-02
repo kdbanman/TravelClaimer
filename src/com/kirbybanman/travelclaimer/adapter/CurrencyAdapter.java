@@ -16,8 +16,22 @@ package com.kirbybanman.travelclaimer.adapter;
  *  limitations under the License.
  */
 
+/**
+ * Minimal extension to turn the Expense.Category enumeration
+ * into a spinner dropdown view.
+ * 
+ * @author kdbanman
+ *
+ */
 import android.content.Context;
 
+/**
+ * Minimal extension to _expose a subset_ of the Expense.Currency enumeration as a spinner dropdown.  See
+ * CurrencyAdapterEnum for more details.
+ * 
+ * @author kdbanman
+ *
+ */
 public class CurrencyAdapter extends SpinnerEnumAdapter<CurrencyAdapterEnum> {
 	
 	public CurrencyAdapter(Context context) {

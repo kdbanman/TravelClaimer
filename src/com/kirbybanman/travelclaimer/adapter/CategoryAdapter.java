@@ -20,6 +20,13 @@ import com.kirbybanman.travelclaimer.model.Expense.Category;
 
 import android.content.Context;
 
+/**
+ * Minimal extension to turn the Expense.Category enumeration
+ * into a spinner dropdown view.
+ * 
+ * @author kdbanman
+ *
+ */
 public class CategoryAdapter extends SpinnerEnumAdapter<Category> {
 
 	public CategoryAdapter(Context context) {

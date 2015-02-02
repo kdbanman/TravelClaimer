@@ -1,7 +1,14 @@
 package com.kirbybanman.travelclaimer;
 
 /*
- *    Copyright 2015 Kirby Banman
+ *  Date picker adapted from
+ *  	http://developer.android.com/guide/topics/ui/controls/pickers.html
+ *  on 1 Feb 2015.
+ *  
+ *  Licensed Apache 2.0 as per
+ *  	http://developer.android.com/license.html
+ *  
+ *    (Copyright 2015 Google Inc?) 
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -32,9 +39,9 @@ import android.widget.DatePicker;
 
 import com.kirbybanman.travelclaimer.interfaces.DateSetter;
 
-/* Date picker adapted from http://developer.android.com/guide/topics/ui/controls/pickers.html
- * 
- * Takes a DateSetter so that the activity can accept the date.
+/**
+ * Takes a DateSetter callback interface implementor so that a receiver class can accept a date
+ * as chosen by a date dialog.
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 	private DateSetter dateSetter;

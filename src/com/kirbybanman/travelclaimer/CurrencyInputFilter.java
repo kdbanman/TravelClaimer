@@ -1,31 +1,26 @@
 package com.kirbybanman.travelclaimer;
 
 /*
- *    Copyright 2015 Kirby Banman
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-
-import android.text.InputFilter;
-import android.text.Spanned;
-
-/*
  * Currency character sequence filter adapted from
  * 	http://stackoverflow.com/questions/5357455/limit-decimal-places-in-android-edittext
  * by user
  * 	peceps
  * on
  * 	1 Feb 2015
+ * 
+ * Licensed CC BY-SA http://creativecommons.org/licenses/by-sa/2.5/
+ */
+
+import android.text.InputFilter;
+import android.text.Spanned;
+
+/**
+ * 
+ * Input filter that operates between changes to a text entry. (i.e. keypresses).
+ * Has been modified from the original to target 2 decimal floating point strings.
+ * 
+ * @author peceps
+ *
  */
 public class CurrencyInputFilter implements InputFilter {
 
@@ -66,6 +61,7 @@ public class CurrencyInputFilter implements InputFilter {
 	      if (len - dotPos > 2) {
 	    	  return "";
 	      }
+	    // Kirby's change next 3 lines
 	    } else if ((source.equals(".") || source.equals(",")) && 
 	    			len - dend > 2) {
 	    	return "";

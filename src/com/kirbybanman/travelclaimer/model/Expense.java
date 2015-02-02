@@ -23,6 +23,16 @@ import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
 import android.util.Log;
 
+/**
+ * Similar to Claim, an Expense knows only its data and accessors, as well as a nested
+ * enumeration (of expense categories).
+ * 
+ * An expense is a single monetary expense belonging to a Claim.  It is an amount of money
+ * associated with data like description, date, category, etc.
+ * 
+ * @author kdbanman
+ *
+ */
 public class Expense {
 	
 	public enum Category implements Stringable<Category> {

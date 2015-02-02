@@ -24,8 +24,12 @@ import java.util.Map;
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.Expense;
 
-/*
- * Class for rendering Claims as strings.
+/**
+ * Class for rendering Claims as strings.  Represents separation of (textual) view information
+ * from model information.  This ended up being *very* nice.  My model was squeeky clean, and 
+ * I could still have powerful string representations of it whenever I wanted.
+ * 
+ * @author kdbanman
  */
 public class ClaimStringRenderer {
 

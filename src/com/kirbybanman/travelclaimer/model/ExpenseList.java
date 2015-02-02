@@ -23,6 +23,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * List of Expenses.  Similarly to ClaimsList, this mostly ended up being a wrapper
+ * for List<Expense>.  However, the wrapper boilerplate paid off when I needed to make
+ * the getTotals() map method here.  That change was made without affecting *any* existing
+ * code, which would not have been the case if a Claim had a List<Expense> instead of an ExpenseList.
+ * 
+ * @author kdbanman
+ *
+ */
 public class ExpenseList implements Iterable<Expense> {
 	ArrayList<Expense> expenses; 
 	

@@ -18,12 +18,15 @@ package com.kirbybanman.travelclaimer.adapter;
 
 import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
-/* This enum looks like it's modelling currencies.  So why is it in the
+/**
+ *  This enum looks like it's modelling currencies.  So why is it in the
  * adapter package?
  * 
  * Because currencies are already more generally modelled within the model
  * package.  This is just the listing I wish to support at the UI level so
  * that the currency spinner isn't unweildy.
+ * 
+ * @author kdbanman
  */
 public enum CurrencyAdapterEnum implements Stringable<CurrencyAdapterEnum> {
 

@@ -37,6 +37,14 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
+/**
+ * Activity for viewing the member Expenses of a Claim.  As such, it is associated with a single
+ * claim that must already exist.
+ * Allows deletion of Expenses.  Allows transition to activities for editing or creating Expenses.
+ * 
+ * @author kdbanman
+ *
+ */
 public class ExpensesListActivity extends TravelClaimerActivity {
 
 	private Claim claim;

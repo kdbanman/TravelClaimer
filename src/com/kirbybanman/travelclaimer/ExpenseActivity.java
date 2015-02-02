@@ -42,6 +42,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/**
+ * Activity for editing all details of an Expense.
+ * 
+ * @author kdbanman
+ *
+ */
 public class ExpenseActivity extends TravelClaimerActivity {
 	
 	private Claim claim;

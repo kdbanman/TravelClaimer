@@ -38,8 +38,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-/*
+/**
+ * 
  * Activity for editing the non-expense related data of an claim.
+ * 
+ * @author kdbanman
  */
 public class EditClaimActivity extends TravelClaimerActivity {
 

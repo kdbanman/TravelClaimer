@@ -20,6 +20,17 @@ import java.util.Date;
 
 import com.kirbybanman.travelclaimer.interfaces.Stringable;
 
+/**
+ * Claim model class.  Knows its data attributes and exposes accessors.
+ * Has a nested enumeration of all possible statuses that is designed to work
+ * with SpinnerEnumAdapter.
+ * 
+ * A claim is a collection of Expenses with a set of associated metadata, like
+ * status and description.
+ * 
+ * @author kdbanman
+ *
+ */
 public class Claim {
 	
 	public enum Status implements Stringable<Status> {

@@ -18,6 +18,14 @@ package com.kirbybanman.travelclaimer.interfaces;
 
 import com.kirbybanman.travelclaimer.model.ClaimsList;
 
+/**
+ * Interface for the main application to make changes to the model.
+ * Very incomplete - see TravelClaimerApp.java's javadoc for more
+ * details.
+ * 
+ * @author kdbanman
+ *
+ */
 public interface ModelMutator {
 	/**
 	 * 

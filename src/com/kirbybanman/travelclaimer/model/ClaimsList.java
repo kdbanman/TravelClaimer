@@ -20,6 +20,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Root of application Model.  A single ClaimsList has many Claims,
+ * and each Claim has many Expenses.  An expense may belong only
+ * to one Claim.
+ * 
+ * This ended up only being a wrapper for List<Claim>, but I still think
+ * this is a useful class for the sake of decoupling my app from the
+ * implementation of my model.
+ * 
+ * @author kdbanman
+ *
+ */
 public class ClaimsList implements Iterable<Claim> {
 	private ArrayList<Claim> claimsList;
 	

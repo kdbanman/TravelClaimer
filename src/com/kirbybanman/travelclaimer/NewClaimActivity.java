@@ -35,6 +35,14 @@ import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.TextView;
 
+/**
+ * Activity for creating a new Claim.
+ * Allows input of all claim data other than member expenses and status (defaults to IN_PROGRESS).
+ * Allows transition back to the claims list, or to the entry point for more detailed
+ * editing the newly created claim.
+ * 
+ * @author kdbanman
+ */
 public class NewClaimActivity extends TravelClaimerActivity {
 
 	Claim newClaim;

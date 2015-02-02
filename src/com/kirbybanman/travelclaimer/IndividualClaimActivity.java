@@ -30,6 +30,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Activity for viewing a textual summary of all details and expenses of a claim.  As such,
+ * it is associated with a single claim that must already exist.
+ * Allows transition to activities for editing member expenses, other data, or emailing the summary view (EXTERNAL).
+ * 
+ * @author kdbanman
+ *
+ */
 public class IndividualClaimActivity extends TravelClaimerActivity {
 
 	private Claim claim;

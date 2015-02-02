@@ -16,6 +16,16 @@ package com.kirbybanman.travelclaimer.interfaces;
  *  limitations under the License.
  */
 
+/**
+ * Interface to tease strings out of java enums.  Much fiddling was had with
+ * this and SpinnerEnumAdapter.  I'm no longer sure that the type parameter
+ * is necessary, but getting generics to play nice with enums is always a
+ * giggle.
+ * 
+ * @author kdbanman
+ *
+ * @param <E>
+ */
 public interface Stringable<E> {
 	public String toString();
 }
