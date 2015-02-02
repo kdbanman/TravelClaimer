@@ -1,7 +1,10 @@
-package com.kirbybanman.travelclaimer;
+package com.kirbybanman.travelclaimer.adapter;
 
 import java.util.List;
 
+import com.kirbybanman.travelclaimer.R;
+import com.kirbybanman.travelclaimer.R.id;
+import com.kirbybanman.travelclaimer.R.layout;
 import com.kirbybanman.travelclaimer.model.Expense;
 import com.kirbybanman.travelclaimer.view.ExpenseStringRenderer;
 

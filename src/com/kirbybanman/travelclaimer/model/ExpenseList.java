@@ -48,6 +48,10 @@ public class ExpenseList implements Iterable<Expense> {
 	public Expense get(int index) {
 		return expenses.get(index);
 	}
+	
+	public boolean contains(Expense expense) {
+		return expenses.contains(expense);
+	}
 
 	@Override
 	public Iterator<Expense> iterator() {

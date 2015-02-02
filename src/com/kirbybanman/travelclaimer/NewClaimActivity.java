@@ -3,9 +3,6 @@ package com.kirbybanman.travelclaimer;
 import java.util.Date;
 
 import com.kirbybanman.travelclaimer.R;
-import com.kirbybanman.travelclaimer.R.id;
-import com.kirbybanman.travelclaimer.R.layout;
-import com.kirbybanman.travelclaimer.R.menu;
 import com.kirbybanman.travelclaimer.callbacks.DateSetter;
 import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;

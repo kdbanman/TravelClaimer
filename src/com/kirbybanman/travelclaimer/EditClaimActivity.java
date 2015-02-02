@@ -2,18 +2,15 @@ package com.kirbybanman.travelclaimer;
 
 import java.util.Date;
 
+import com.kirbybanman.travelclaimer.adapter.StatusAdapter;
 import com.kirbybanman.travelclaimer.callbacks.DateSetter;
-import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;
-import com.kirbybanman.travelclaimer.model.ClaimsList;
 import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +20,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/*
+ * Activity for editing the non-expense related data of an claim.
+ */
 public class EditClaimActivity extends TravelClaimerActivity {
 
 	private Claim claim;
@@ -51,8 +51,11 @@ public class EditClaimActivity extends TravelClaimerActivity {
 		statusSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
-			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				claim.setStatus(spinnerAdapter.getStatus(position));
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// save the changes to the local attribute, but do
+				// not mutate/save global state yet.
+				claim.setStatus(spinnerAdapter.get(position));
 				updateView();
 			}
 
@@ -84,11 +87,14 @@ public class EditClaimActivity extends TravelClaimerActivity {
 			
 		updateView();
 	}
-	
+
+	/*
+	 * Render view elements according to local claim model state.
+	 */
 	private void updateView() {
 		ClaimStringRenderer claimStringRenderer = new ClaimStringRenderer(claim);
 
-		statusSpinner.setSelection(spinnerAdapter.getPosition(claim.getStatus()));
+		statusSpinner.setSelection(spinnerAdapter.indexOf(claim.getStatus()));
 		
 		startDateText.setText(claimStringRenderer.getStartDate());
 		endDateText.setText(claimStringRenderer.getEndDate());
@@ -149,6 +155,8 @@ public class EditClaimActivity extends TravelClaimerActivity {
 	/* Save the new claim to the model and transition to the individual claims view.
 	 */
 	public void doneButtonClicked(View view) {
+		// Text description is now confirmed.  write it to local
+		// model and the save that model globally.
 		claim.setDescription(descriptionText.getText().toString());
 		
 		getApp().saveModel();

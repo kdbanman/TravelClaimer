@@ -1,4 +1,4 @@
-package com.kirbybanman.travelclaimer;
+package com.kirbybanman.travelclaimer.adapter;
 
 import java.util.List;
 

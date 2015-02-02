@@ -1,5 +1,6 @@
 package com.kirbybanman.travelclaimer;
 
+import com.kirbybanman.travelclaimer.adapter.ExpensesListAdapter;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.Expense;

@@ -8,7 +8,6 @@ import com.kirbybanman.travelclaimer.model.ClaimsList;
 import com.kirbybanman.travelclaimer.model.Expense;
 
 import android.app.Application;
-import android.util.Log;
 
 public class TravelClaimerApp extends Application {
 

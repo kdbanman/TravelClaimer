@@ -2,9 +2,11 @@ package com.kirbybanman.travelclaimer.model;
 
 import java.util.Date;
 
+import com.kirbybanman.travelclaimer.callbacks.Stringable;
+
 public class Claim {
 	
-	public enum Status {
+	public enum Status implements Stringable<Status> {
 		IN_PROGRESS("IN PROGRESS"),
 		SUBMITTED("SUBMITTED"),
 		RETURNED("RETURNED"),

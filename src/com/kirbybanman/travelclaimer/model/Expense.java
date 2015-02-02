@@ -3,11 +3,13 @@ package com.kirbybanman.travelclaimer.model;
 import java.util.Currency;
 import java.util.Date;
 
+import com.kirbybanman.travelclaimer.callbacks.Stringable;
+
 import android.util.Log;
 
 public class Expense {
 	
-	public enum Category {
+	public enum Category implements Stringable<Category> {
 		ACCOMODATION("Accomodation"),
 		AIR_FARE("Air Fare"),
 		FUEL("Fuel"),
@@ -24,6 +26,7 @@ public class Expense {
 			this.asString = asString;
 		}
 		
+		@Override
 		public String toString() {
 			return asString;
 		}

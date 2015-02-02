@@ -4,6 +4,7 @@ import com.kirbybanman.travelclaimer.R;
 import com.kirbybanman.travelclaimer.R.id;
 import com.kirbybanman.travelclaimer.R.layout;
 import com.kirbybanman.travelclaimer.R.menu;
+import com.kirbybanman.travelclaimer.adapter.ClaimsListAdapter;
 import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;

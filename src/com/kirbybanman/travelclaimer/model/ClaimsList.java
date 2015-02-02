@@ -42,6 +42,10 @@ public class ClaimsList implements Iterable<Claim> {
 	public List<Claim> getList() {
 		return claimsList;
 	}
+	
+	public boolean contains(Claim claim) {
+		return claimsList.contains(claim);
+	}
 
 	@Override
 	public Iterator<Claim> iterator() {
