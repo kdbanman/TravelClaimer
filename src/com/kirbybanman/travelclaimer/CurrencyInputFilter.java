@@ -35,15 +35,24 @@ public class CurrencyInputFilter implements InputFilter {
 	    }
 	    if (dotPos >= 0) {
 
-	      // protects against many dots
-	      if (source.equals(".") || source.equals(",") || len - dotPos > 2)
+	      // do not accept >1 dots
+	      if (source.equals(".") || source.equals(","))
 	      {
 	          return "";
 	      }
-	      // if the text is entered before the dot
+	      
+	      // if the text is entered before the dot, who cares
 	      if (dend <= dotPos) {
 	        return null;
 	      }
+	      
+	      // do not ollow >2 decimal accuracy
+	      if (len - dotPos > 2) {
+	    	  return "";
+	      }
+	    } else if ((source.equals(".") || source.equals(",")) && 
+	    			len - dend > 2) {
+	    	return "";
 	    }
 
 	    return null;

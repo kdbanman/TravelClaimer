@@ -2,10 +2,16 @@ package com.kirbybanman.travelclaimer;
 
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;
+import com.kirbybanman.travelclaimer.model.Expense;
 import com.kirbybanman.travelclaimer.view.ClaimStringRenderer;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class ExpensesListActivity extends TravelClaimerActivity {
 
@@ -30,7 +37,7 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 		
 		expensesListView = (ListView) findViewById(R.id.ExpensesListView);
 		expensesListView.setOnItemClickListener(new ExpenseClickListener());
-		//TODO long click listeners
+		expensesListView.setOnItemLongClickListener(new ExpenseLongClickListener());
 	}
 	
 	@Override
@@ -75,6 +82,17 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 		}
 	}
 	
+	/*
+	 * On a long click, delete the expense with confirmation dialog
+	 */
+	private class ExpenseLongClickListener implements OnItemLongClickListener {
+		@Override
+		public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+			new ConfirmDelete(expensesAdapter.getItem(position)).show(getFragmentManager(), "Confirm_Delete_Claim");;
+			return true;
+		}
+	}
+	
 	private boolean intentHasClaim() {
 		return getIntent().getIntExtra("claimPosition", -1) != -1;
 	}
@@ -88,5 +106,35 @@ public class ExpensesListActivity extends TravelClaimerActivity {
 			Log.e("intent fail", e.toString());
 		}
 		return null;
+	}
+	
+	/* Delete confirmation dialog adapted from
+	 * http://stackoverflow.com/questions/12912181/simplest-yes-no-dialog-fragment
+	 */
+	private class ConfirmDelete extends DialogFragment {
+		private Expense expense;
+		
+		public ConfirmDelete(Expense expense) {
+			this.expense = expense;
+		}
+		
+	    @Override
+	    public Dialog onCreateDialog(Bundle savedInstanceState) {
+	        return new AlertDialog.Builder(getActivity())
+	                .setMessage("Delete Expense?")
+	                .setNegativeButton("No", null)
+	                .setPositiveButton("Yes", new OnClickListener() {
+						@Override 
+						public void onClick(DialogInterface dialog, int which) {
+							if (which == DialogInterface.BUTTON_POSITIVE) {
+								claim.removeExpense(expense);
+								expensesAdapter.notifyDataSetChanged();
+								ExpensesListActivity.this.getApp().saveModel();
+							}
+						}
+	                })
+	                .create();
+	    }
+
 	}
 }

@@ -87,9 +87,8 @@ public class NewClaimActivity extends TravelClaimerActivity {
 		
 		getApp().mutateModel(new ModelMutator() {
 			@Override
-			public boolean mutate(ClaimsList claimsList) {
+			public void mutate(ClaimsList claimsList) {
 				claimsList.add(newClaim);
-				return true;
 			}
 		});
 		

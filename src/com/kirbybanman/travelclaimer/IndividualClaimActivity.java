@@ -34,11 +34,13 @@ public class IndividualClaimActivity extends TravelClaimerActivity {
 	protected void onResume() {
 		super.onResume();
 		
+		// receive claim position in model from intent
 		int claimPosition = getIntent().getIntExtra("claimPosition", -1);
 		
 		try {
 			claim = getApp().getClaimsList().get(claimPosition);
 			summaryText.setText(new ClaimStringRenderer(claim).getFullDescription());
+			findViewById(R.id.IndividualClaimEditExpensesButton).setEnabled(claim.isEditable());
 		} catch (IndexOutOfBoundsException e) {
 			Log.e("intent fail", e.toString());
 			summaryText.setText("Bad claim number: " + claimPosition);

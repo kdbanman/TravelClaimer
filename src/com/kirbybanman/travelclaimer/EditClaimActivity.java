@@ -151,14 +151,7 @@ public class EditClaimActivity extends TravelClaimerActivity {
 	public void doneButtonClicked(View view) {
 		claim.setDescription(descriptionText.getText().toString());
 		
-		getApp().mutateModel(new ModelMutator() {
-			@Override
-			public boolean mutate(ClaimsList claimsList) {
-				//no need to set claims list - claim edited in place.
-				//mutator called to trigger persistence code
-				return true;
-			}
-		});
+		getApp().saveModel();
 		
 		Intent intent = new Intent(this, IndividualClaimActivity.class);
 		intent.putExtra("claimPosition", getApp().getClaimsList().indexOf(claim));

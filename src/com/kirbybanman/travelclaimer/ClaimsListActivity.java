@@ -4,8 +4,10 @@ import com.kirbybanman.travelclaimer.R;
 import com.kirbybanman.travelclaimer.R.id;
 import com.kirbybanman.travelclaimer.R.layout;
 import com.kirbybanman.travelclaimer.R.menu;
+import com.kirbybanman.travelclaimer.callbacks.ModelMutator;
 import com.kirbybanman.travelclaimer.core.TravelClaimerActivity;
 import com.kirbybanman.travelclaimer.model.Claim;
+import com.kirbybanman.travelclaimer.model.ClaimsList;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -39,8 +41,6 @@ public class ClaimsListActivity extends TravelClaimerActivity {
 		claimsList.setAdapter(claimsAdapter);
 		claimsList.setOnItemClickListener(new ClaimClickListener());
 		claimsList.setOnItemLongClickListener(new ClaimLongClickListener());
-		
-		
 	}
 	
 	@Override
@@ -118,7 +118,17 @@ public class ClaimsListActivity extends TravelClaimerActivity {
 	                .setPositiveButton("Yes", new OnClickListener() {
 						@Override 
 						public void onClick(DialogInterface dialog, int which) {
-							if (which == DialogInterface.BUTTON_POSITIVE) claimsAdapter.remove(claim);
+							if (which == DialogInterface.BUTTON_POSITIVE) {
+								getApp().mutateModel(new ModelMutator() {
+
+									@Override
+									public void mutate(ClaimsList claimsList) {
+										claimsList.remove(claim);
+									}
+									
+								});
+								claimsAdapter.notifyDataSetChanged();
+							}
 						}
 	                })
 	                .create();

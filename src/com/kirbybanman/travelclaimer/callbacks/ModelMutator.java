@@ -3,5 +3,9 @@ package com.kirbybanman.travelclaimer.callbacks;
 import com.kirbybanman.travelclaimer.model.ClaimsList;
 
 public interface ModelMutator {
-	public boolean mutate(ClaimsList claimsList);
+	/**
+	 * 
+	 * @param claimsList model to be mutated
+	 */
+	public void mutate(ClaimsList claimsList);
 }

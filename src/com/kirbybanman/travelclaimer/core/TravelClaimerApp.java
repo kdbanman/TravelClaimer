@@ -8,6 +8,7 @@ import com.kirbybanman.travelclaimer.model.ClaimsList;
 import com.kirbybanman.travelclaimer.model.Expense;
 
 import android.app.Application;
+import android.util.Log;
 
 public class TravelClaimerApp extends Application {
 
@@ -29,11 +30,16 @@ public class TravelClaimerApp extends Application {
 		return claimsList;
 	}
 	
-	public boolean mutateModel(ModelMutator mutator) {
+	public void mutateModel(ModelMutator mutator) {
+		// TODO should throw on bad save
 		mutator.mutate(claimsList);
+		saveModel();
 		
+	}
+	
+	public void saveModel() {
 		//TODO GSON to/from json return bool and log on errrrrrrrrrbody in da club
-		return true;
+
 	}
 	
 	/**
