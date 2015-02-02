@@ -1,19 +1,32 @@
 package com.kirbybanman.travelclaimer.core;
 
+/*
+ *    Copyright 2015 Kirby Banman
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.kirbybanman.travelclaimer.interfaces.ModelMutator;
-import com.kirbybanman.travelclaimer.model.Claim;
 import com.kirbybanman.travelclaimer.model.ClaimsList;
-import com.kirbybanman.travelclaimer.model.Expense;
 
 import android.app.Application;
 import android.content.Context;
@@ -97,23 +110,5 @@ public class TravelClaimerApp extends Application {
 			Log.e("IO error", "file read failed");
 		}
 		return claimsList;
-	}
-	
-	/**
-	 * Testing function to populate gui without GSON or repeatedly entering stuff;
-	 */
-	private static void addFixtureData() {
-		Claim temp1 = new Claim("first one", new Date(2), new Date(36));
-		temp1.addExpense(new Expense(75.0f, "GBP", "747-400 cheap!", new Date(), Expense.Category.AIR_FARE));
-		temp1.addExpense(new Expense(15.0f, "GBP", "F14 cheap!", new Date(33), Expense.Category.AIR_FARE));
-		temp1.addExpense(new Expense(705.0f, "CAD", "cheap!", new Date(10000), Expense.Category.AIR_FARE));
-		
-		Claim temp2 = new Claim("second one", new Date(400), new Date(3600));
-		temp2.addExpense(new Expense(75.0f, "CAD", "747-400 cheap!", new Date(), Expense.Category.AIR_FARE));
-		temp2.addExpense(new Expense(15.0f, "CAD", "F14 cheap!", new Date(33), Expense.Category.AIR_FARE));
-		temp2.addExpense(new Expense(705.0f, "CAD", "cheap!", new Date(10000), Expense.Category.AIR_FARE));
-		
-		claimsList.add(temp1);
-		claimsList.add(temp2);
 	}
 }
