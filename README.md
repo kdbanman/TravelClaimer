@@ -18,7 +18,7 @@ Better quality before timelapse (3 minutes) is [on YouTube here](https://www.you
 
 [`./doc/TravelClaimer_UML.pdf`](https://cdn.rawgit.com/kdbanman/TravelClaimer/master/doc/TravelClaimer_UML.pdf)
 
-![`./doc/TravelClaimer_UML.pdf`](https://cdn.rawgit.com/kdbanman/TravelClaimer/master/doc/TravelClaimer_UML.pdf)
+![`./doc/TravelClaimer_UML.png`](https://cdn.rawgit.com/kdbanman/TravelClaimer/master/doc/TravelClaimer_UML.png)
 
 ## License
 
