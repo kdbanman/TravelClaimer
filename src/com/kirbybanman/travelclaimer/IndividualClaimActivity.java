@@ -80,15 +80,14 @@ public class IndividualClaimActivity extends TravelClaimerActivity {
 	}
 	
 	/* Adapted from 
-	 * http://stackoverflow.com/questions/8284706/send-email-via-gmail
+	 * https://developer.android.com/guide/components/intents-common.html#Email
 	 * on 1 Feb 2015 
 	 */
 	public void emailButtonClicked(View view) {
 		ClaimStringRenderer claimStrings = new ClaimStringRenderer(claim);
 		
 		Intent send = new Intent(Intent.ACTION_SENDTO);
-		send.setType("plain/text");
-		send.putExtra(Intent.EXTRA_EMAIL, new String[] {"kdbanman@ualberta.ca"});
+		send.setData(Uri.parse("mailto:"));
 		send.putExtra(Intent.EXTRA_SUBJECT, claimStrings.getStartDate() + " Claim Details");
 		send.putExtra(Intent.EXTRA_TEXT, claimStrings.getFullDescription());
 		/*String uriText = "mailto:" + Uri.encode("kdbanman@ualberta.ca") + "?subject=" + 
@@ -96,6 +95,7 @@ public class IndividualClaimActivity extends TravelClaimerActivity {
 						 "&body=" + 
 						 Uri.encode(new ClaimStringRenderer(claim).getFullDescription());
 		send.setData(Uri.parse(uriText));*/
-		startActivity(Intent.createChooser(send, "Send mail..."));
+		//startActivity(Intent.createChooser(send, "Send mail..."));
+		startActivity(send);
 	}
 }
